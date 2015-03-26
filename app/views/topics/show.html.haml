@@ -1,0 +1,14 @@
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    = t('tt.show', resource_name: Topic.model_name.human)
+    .pull-right
+      - if current_user == @topic.user
+        = link_to edit_forum_topic_path(@forum, @topic ), class: 'btn btn-default btn-xs' do
+          %i.fa.fa-pencil
+          = t('action_button.edit')
+  .panel-body
+    = show_for @topic do |s|
+      = s.attribute :name
+      = s.association :forum
+      = s.association :user

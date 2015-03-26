@@ -1,0 +1,11 @@
+%tr
+  %td= forum.id
+  %td= forum.name
+  %td= forum.description
+  %td.action
+    = link_to([:hq, forum], class: 'btn btn-success', toogle: 'tooltip', title: t('tooltips.zoom')) do
+      %i.icon-zoom-in
+    = link_to(edit_hq_forum_path(forum) , class: 'btn btn-info') do
+      %i.icon-edit
+    = link_to([:hq, forum], class: 'btn btn-danger', method: :delete) do
+      %i.icon-trash

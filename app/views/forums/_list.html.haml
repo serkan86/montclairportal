@@ -1,0 +1,11 @@
+.panel-heading
+  %i.icon-table.icon-large
+  = t('tt.index', resource_name: Forum.model_name.human)
+
+  .pull-right.badge= @forums.total_entries
+.panel-body
+  - @forums.each do |forum|
+    = link_to forum_topics_path(forum) do
+      %h3= forum.name
+      %strong= forum.topics.count
+      = 'Topics'

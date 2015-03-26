@@ -1,0 +1,20 @@
+.panel-heading
+  %i.icon-table.icon-large
+  = t('tt.index', resource_name: Forum.model_name.human)
+  .panel-tools
+    .btn-group
+      %a.btn{href: hq_forums_path, data: {toggle: 'toolbar-tooltip'}, title: 'Reload'}
+        %i.icon-refresh
+    .badge= @forums.total_entries
+.panel-body.filters
+  -#= render 'filters'
+%table.table
+  %thead
+    %tr
+      %th #
+      %th= sort_link(@search, :name, t('activerecord.attributes.forum.name'))
+      %th= sort_link(@search, :description, t('activerecord.attributes.forum.description'))
+      %th.actions
+        Actions
+  %tbody
+    = render @forums

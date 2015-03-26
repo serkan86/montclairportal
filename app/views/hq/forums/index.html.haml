@@ -1,0 +1,10 @@
+- content_for :toolbar do
+  = link_to new_hq_forum_path, class: 'btn btn-default' do
+    %i.icon-plus
+    = t('action_button.new', resource_name: Forum.model_name.human)
+
+.panel.panel-default.grid
+  = render 'list'
+  .panel-footer
+    .pagination.pagination-sm
+      = will_paginate @forums, renderer: BootstrapPagination::Rails, bootstrap: 3

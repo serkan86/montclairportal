@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    = t('tt.show', resource_name: Forum.model_name.human)
+  .panel-body
+    = show_for @forum do |s|
+      = s.attribute :name
+      = s.attribute :description

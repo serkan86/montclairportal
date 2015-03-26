@@ -1,0 +1,29 @@
+.panel.panel-default
+  .panel-heading
+    %i.icon-table.icon-large
+    = t('tt.index', resource_name: Post.model_name.human)
+    .pull-right
+      = link_to new_forum_topic_post_path(@forum, @topic), class: 'btn btn-default btn-xs' do
+        %i.icon-plus
+        = t('action_button.new', resource_name: Post.model_name.human)
+      .badge= @posts.total_entries
+  .panel-body
+    - @posts.each do |post|
+      .panel.panel-default{style: "background-color: #ECF0F1;"}
+        .panel-body
+          .row
+            .col-sm-1
+              = image_tag 'http://placehold.it/75x75', class: 'img-circle'
+            .col-sm-11
+              .pull-right
+                %strong= "#{time_ago_in_words(post.created_at)}"
+                %span= "ago postdet by"
+                %strong= post.user.name
+                - if current_user == post.user
+                  = link_to forum_topic_post_path(@forum, @topic, post), class: 'btn btn-danger btn-xs' do
+                    %i.fa.fa-trash
+
+                  = link_to edit_forum_topic_post_path(@forum, @topic, post), class: 'btn btn-default btn-xs' do
+                    %i.fa.fa-pencil
+              .clearfix
+              = post.content.html_safe

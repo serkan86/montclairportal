@@ -1,0 +1,20 @@
+.panel.panel-default
+  .panel-heading
+    %i.icon-table.icon-large
+    = t('tt.index', resource_name: Topic.model_name.human)
+    .pull-right
+      = link_to new_forum_topic_path(@forum), class: 'btn btn-default btn-xs' do
+        %i.icon-plus
+        = t('action_button.new', resource_name: Topic.model_name.human)
+      .badge= @topics.total_entries
+  .panel-body
+    - @topics.each do |topic|
+      = link_to forum_topic_posts_path(@forum, topic) do
+        %h3= topic.name
+        %span
+          = "Created By"
+          %strong= topic.user.name
+        %span= "|"
+        %span
+          %strong= topic.posts.count
+          = "Posts"

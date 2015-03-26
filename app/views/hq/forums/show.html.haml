@@ -1,0 +1,14 @@
+- content_for :toolbar do
+  = link_to edit_hq_forum_path(@forum ), class: 'btn btn-default' do
+    %i.icon-pencil
+    = t('action_button.edit')
+
+%h1= @forum.name
+%p= @forum.description
+
+%table.table
+  %tbody
+    - @forum.topics.each do |topic|
+      %tr
+        %td
+          %h3= topic.name

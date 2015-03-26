@@ -1,0 +1,69 @@
+.row
+  .col-sm-12
+    #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+      / Indicators
+      %ol.carousel-indicators
+        %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+        %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+      / Wrapper for slides
+      .carousel-inner{:role => "listbox"}
+        .item.active
+          %img{:alt => "...", :src => 'http://lorempixel.com/output/fashion-q-c-1140-500-1.jpg'}/
+          .carousel-caption
+            Montclair Forum
+        .item
+          %img{:alt => "...", :src => 'http://lorempixel.com/output/people-q-c-1140-500-5.jpg'}/
+          .carousel-caption
+            Montclair Blog
+        .item
+          %img{:alt => "...", :src => 'http://lorempixel.com/output/fashion-q-c-1140-500-3.jpg'}/
+          .carousel-caption
+            Montclair Rent
+
+      / Controls
+      %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+        %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+        %span.sr-only Previous
+      %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+        %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+        %span.sr-only Next
+  -#.col-sm-4
+  -#  .well
+  -#
+  -#    %form.form-horizontal
+  -#      %fieldset
+  -#        .center
+  -#          %legend Sign Up
+  -#          %i.fa.fa-user.fa-5x
+  -#        .form-group
+  -#          -#%label.col-lg-2.control-label{:for => "inputEmail"} Email
+  -#          .col-lg-12
+  -#            %input#inputName.form-control{:placeholder => "Name", :type => "text"}/
+  -#        .form-group
+  -#          -#%label.col-lg-2.control-label{:for => "inputEmail"} Email
+  -#          .col-lg-12
+  -#            %input#inputEmail.form-control{:placeholder => "Email", :type => "text"}/
+  -#        .form-group
+  -#          -#%label.col-lg-2.control-label{:for => "inputPassword"} Password
+  -#          .col-lg-12
+  -#            %input#inputPassword.form-control{:placeholder => "Password", :type => "password"}/
+  -#
+  -#        .form-group
+  -#          .col-lg-12.center
+  -#            %button.btn.btn-primary{:type => "submit"} Submit
+
+.row
+  .col-sm-12.center
+    %h1 Everything For Students
+    %hr/
+.row
+  .col-sm-4
+    .well
+      %h1=link_to 'Forum', forums_path
+  .col-sm-4
+    .well
+      %h1 File Sharing
+  .col-sm-4
+    .well
+      %h1= link_to 'Blogs', blogs_path

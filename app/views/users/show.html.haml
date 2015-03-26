@@ -1,0 +1,14 @@
+.row
+  .col-sm-4
+    .well
+      = render @user
+  .col-sm-8
+    .well
+      - if @blogs.size == 0
+        .center
+          = link_to new_blog_path, class: 'btn btn-default btn-lg' do
+            %i.fa.fa-plus
+            = 'New Blog Post'
+      - else
+        - @blogs.each do |blog|
+          %h2= link_to blog.title, [blog.user, blog]

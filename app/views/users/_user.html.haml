@@ -1,0 +1,11 @@
+.center
+  = image_tag 'http://placehold.it/150x150', class: 'img-circle'
+%h2= user.name
+%p
+  %span.badge= user.posts.count
+  Posts
+%p
+  %span.badge= user.topics.count
+  Topics
+- if user_signed_in? && current_user == user
+  = link_to 'New Blog Post', new_blog_path

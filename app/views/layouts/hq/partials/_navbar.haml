@@ -1,0 +1,14 @@
+#navbar.navbar.navbar-default
+  %a.navbar-brand{:href => '#'}
+    %i.icon-beer
+    Montclair Portal
+  %ul.nav.navbar-nav.pull-right
+    %li.dropdown.user
+      %a.dropdown-toggle{'data-toggle' => 'dropdown', :href => '#'}
+        %i.icon-user
+        %strong= current_admin.email
+        =image_tag 'http://lorempixel.com/output/fashion-q-c-20-20-4.jpg', width: '20px', height: '20px', class: 'img-rounded'
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          =link_to 'Sign out', destroy_admin_session_path, method: :delete

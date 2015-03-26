@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title= yield :title
+    = stylesheet_link_tag 'application',
+                        '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
+                        media: 'all', 'data-turbolinks-track' => true
+
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    .container
+      = render 'layouts/partials/navbar'
+      = render 'layouts/partials/breadcrumb'
+      .row
+        .col-sm-12
+          .pull-right
+            = yield :toolbar
+      = yield
+      .footer
+        %p © Montclair Portal 2015

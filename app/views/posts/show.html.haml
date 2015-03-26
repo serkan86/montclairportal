@@ -1,0 +1,12 @@
+
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    = t('tt.show', resource_name: Post.model_name.human)
+    .pull-right
+      - if current_user == @post.user
+        = link_to edit_forum_topic_post_path(@forum, @topic, @post ), class: 'btn btn-default btn-xs' do
+          %i.icon-pencil
+          = t('action_button.edit')
+  .panel-body
+    = @post.content.html_safe
