@@ -20,7 +20,7 @@ set :default_stage, 'production'
 
 default_run_options[:pty] = true
 
-set :application, 'application_name'
+set :application, 'montclairportal'
 set :user, 'deployer' # We use deployer
 set :deploy_to, "/home/#{user}/apps/#{application}"
 
@@ -28,7 +28,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@github.com:username/#{application}.git"
+set :repository, "git@github.com:serkan86/#{application}.git"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true

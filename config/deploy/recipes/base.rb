@@ -28,7 +28,8 @@ namespace :deploy do
     # Ruby dependencies package
     run "#{sudo} apt-get -y install zlib1g-dev openssl libopenssl-ruby1.9.1 libssl-dev libruby1.9.1 libreadline-dev git-core make make-doc"
 
-    # Rvm install
+    run "#{sudo} apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev"
+
     run "cd ~ && git clone git://github.com/sstephenson/rbenv.git .rbenv"
 
     run "echo 'export PATH=\"$HOME/.rbenv/bin:$PATH\"' >> ~/.bashrc"
@@ -36,7 +37,7 @@ namespace :deploy do
 
     run 'mkdir -p ~/.rbenv/plugins'
     run 'cd ~/.rbenv/plugins && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash'
-    run 'rbenv install 2.0.0-p247 && rbenv rehash && rbenv global 2.0.0-p247'
+    run 'rbenv install 2.2.1 && rbenv rehash && rbenv global 2.2.1'
 
     # Update rubygems
     run 'gem update --system'
@@ -64,7 +65,7 @@ namespace :deploy do
   end
 end
 
-before 'deploy:setup', 'deploy:install'
+# before 'deploy:setup', 'deploy:install'
 after 'deploy', 'deploy:cleanup'
 before 'deploy:cold', 'deploy:install_bundler'
 before 'deploy', 'deploy:web:disable'

@@ -3,7 +3,7 @@ namespace :monit do
   task :install do
     run "#{sudo} apt-get -y install monit"
   end
-  after 'deploy:install', 'monit:install'
+  # after 'deploy:install', 'monit:install'
 
   desc 'Setup all Monit configuration'
   task :setup do
@@ -14,7 +14,7 @@ namespace :monit do
     syntax
     reload
   end
-  after 'deploy:setup', 'monit:setup'
+  # after 'deploy:setup', 'monit:setup'
   
   task(:nginx, roles: :web) { monit_config "nginx" }
   #task(:postgresql, roles: :db) { monit_config "postgresql" }

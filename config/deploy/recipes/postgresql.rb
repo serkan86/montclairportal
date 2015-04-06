@@ -13,7 +13,7 @@ namespace :postgresql do
     run "#{sudo} apt-get -y install postgresql-9.2 libpq-dev"
   end
 
-  after "deploy:install", "postgresql:install"
+  # after "deploy:install", "postgresql:install"
 
   desc 'Create a database for this application.'
   task :create_database, roles: :db, only: {primary: true} do

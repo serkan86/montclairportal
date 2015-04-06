@@ -22,7 +22,7 @@ namespace :backup do
     end
   end
 
-  after 'deploy:setup', 'backup:setup'
+  # after 'deploy:setup', 'backup:setup'
 
   desc 'Get backup.'
   task :perform do
@@ -36,5 +36,5 @@ namespace :backup do
     end
   end
 
-  before 'deploy', 'backup:perform'
+  # before 'deploy', 'backup:perform'
 end
