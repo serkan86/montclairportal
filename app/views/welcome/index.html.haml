@@ -59,11 +59,24 @@
     %hr/
 .row
   .col-sm-4
-    .well
-      %h1=link_to 'Forum', forums_path
+    .panel.panel-default
+      .panel-heading
+        Last Topics
+      .panel-body
+        - Topic.order('id DESC').limit(10).each do |topic|
+          %p= link_to topic.name, forum_topic_posts_path(topic.forum, topic)
   .col-sm-4
-    .well
-      %h1 File Sharing
+    .panel.panel-default
+      .panel-heading
+        Last Blog Posts
+      .panel-body
+        - Blog.order('id DESC').limit(10).each do |blog|
+          %p= link_to blog.title, user_blog_path(blog.user, blog)
   .col-sm-4
-    .well
-      %h1= link_to 'Blogs', blogs_path
+    .panel.panel-default
+      .panel-heading
+        Last Users
+      .panel-body
+        - User.order('id DESC').limit(10).each do |user|
+          = link_to user_path(user) do
+            = image_tag user.avatar.url(:micro_thumb)

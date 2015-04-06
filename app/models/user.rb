@@ -12,4 +12,11 @@ class User < ActiveRecord::Base
   validates_presence_of :name
 
   has_many :blogs
+
+  has_attached_file :avatar, :styles => { micro_thumb: '50x50#', medium: '500x500>', thumb: '100x100#', small: '150x150#'}, default_url: ':style_profile.gif'
+
+  validates_attachment_content_type :avatar,
+                                    content_type: ['image/jpeg', 'image/png', 'image/jpg'],
+                                    message: 'Sadece jpg, png resim dosylarını yükleyebilirsiniz.'
+
 end

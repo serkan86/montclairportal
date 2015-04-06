@@ -5,7 +5,6 @@
         = render @user
   %div{class: @user.present? ? 'col-sm-8' : 'col-sm-12'}
     - @blogs.each do |blog|
-      .well
-        %h2= link_to blog.title, [blog.user, blog]
-        = blog.content.html_safe
+      %h2= link_to blog.title, [blog.user, blog]
+      = blog.content.html_safe
 
