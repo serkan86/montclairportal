@@ -1,0 +1,10 @@
+= simple_form_for([commentable, comment], remote: true) do |f|
+  = f.error_notification
+  .row
+    .col-sm-12
+      = f.input :content, as: :text, label: false, input_html: {rows: 3}, autofocus: true
+  .row
+    .col-sm-12
+      .pull-right
+        = f.button :button, 'Share', class: 'btn btn-default', data: { disable_with: 'Sending' }
+      .clearfix

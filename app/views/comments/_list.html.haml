@@ -1,0 +1,4 @@
+#commentItemList
+  = render comments
+
+= paginate comments, :params => { :controller => 'comments', :action => 'index', "#{commentable.class.name.underscore.to_s}_id" => commentable.id }

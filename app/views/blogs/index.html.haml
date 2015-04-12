@@ -1,10 +1,11 @@
 .row
   - if @user.present?
     .col-sm-4
-      .well
-        = render @user
+      = render @user
   %div{class: @user.present? ? 'col-sm-8' : 'col-sm-12'}
     - @blogs.each do |blog|
-      %h2= link_to blog.title, [blog.user, blog]
-      = blog.content.html_safe
+      .panel.panel-default
+        .panel-body
+          %h2= link_to blog.title, [blog.user, blog]
+          = blog.content.html_safe
 

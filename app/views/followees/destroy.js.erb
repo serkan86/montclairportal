@@ -1,0 +1,5 @@
+<% if !@follow %>
+$('.user-follow-<%= @candidate.id %>').html("<%= escape_javascript( render partial: 'users/unfollow_button', :locals => { :user => @candidate } ) %>");
+<% else %>
+$('.user-follow-<%= @candidate.id %>').html("<%= escape_javascript( render partial: 'users/follow_button', :locals => { :user => @candidate } ) %>");
+<% end %>

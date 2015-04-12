@@ -1,0 +1,21 @@
+- user = comment.user
+
+.panel.panel-yellow{id: "comment-#{comment.id}"}
+  .panel-body
+    .row
+      .col-sm-1
+        = image_tag user.avatar(:micro_thumb), class: 'img-circle', alt: user.name, width: comment.commentable_type == 'User' ? 40 : 50
+
+      .col-lg-10
+        %p
+          = link_to user.name, user, class: 'big-text'
+          |
+          %span
+            %i.fa.fa-clock-o
+            = "#{time_ago_in_words(comment.created_at)} Ago"
+        %p.margin
+          = simple_format comment.content
+      .col-sm-1
+        - if current_user == comment.user
+          = link_to url_for([comment.commentable, comment]), remote: true, method: :delete, class: '', data: { confirm: 'Eminmisiniz ?', disable_with: 'Siliniyor' }, 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => 'Sil' do
+            Delete

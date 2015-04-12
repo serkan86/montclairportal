@@ -1,0 +1,6 @@
+<% if @comment.errors.any? %>
+$("#comment_form_<%= @comment.commentable_type %>_<%= @comment.commentable_id %>").html("<%= escape_javascript( render partial: 'comments/form', :locals => { :commentable => @comment.commentable, comment: @comment } ) %>");
+<% else %>
+$("#comment_form_<%= @comment.commentable_type %>_<%= @comment.commentable_id %>").html("<%= escape_javascript( render partial: 'comments/form', :locals => { :commentable => @comment.commentable, comment: Comment.new } ) %>");
+$("<%= escape_javascript( render @comment )%>").prependTo("#commentItemList").effect('highlight', {}, 2000);
+<% end %>

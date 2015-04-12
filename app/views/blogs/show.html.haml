@@ -1,13 +1,16 @@
-.panel.panel-default
-  .panel-heading
-    %i.icon-edit.icon-large
-    = @blog.title
-    .pull-right
-      - if user_signed_in? && @blog.user_id == current_user.id
-        = link_to edit_blog_path(@blog ), class: 'btn btn-default btn-xs' do
-          %i.fa.fa-pencil
-          = t('action_button.edit')
-        = link_to blog_path(@blog ), class: 'btn btn-default btn-xs', method: :delete do
-          %i.fa.fa-trash
-  .panel-body
-    = @blog.content.html_safe
+.row
+  .col-sm-4
+    = render @blog.user
+  .col-sm-8
+    .panel.panel-default
+      .panel-body
+        %h1= @blog.title
+        = @blog.content.html_safe
+        %hr/
+        .pull-right
+          - if user_signed_in? && @blog.user_id == current_user.id
+            = link_to edit_blog_path(@blog ), class: 'btn btn-default btn-xs' do
+              %i.fa.fa-pencil
+              = t('action_button.edit')
+            = link_to blog_path(@blog ), class: 'btn btn-default btn-xs', method: :delete do
+              %i.fa.fa-trash

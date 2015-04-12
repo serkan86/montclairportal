@@ -1,0 +1,24 @@
+.row
+  .col-sm-4
+    .list-group
+      - @users.each do |user|
+        %a.list-group-item{:href => messages_path(user_id: user.id), class: (@user.present? && @user.id == user.id) ? 'active' : ''}
+          = image_tag user.avatar.url(:micro_thumb), class: 'img-circle'
+          = user.name
+  .col-sm-8
+    - if @messages.present?
+      .row
+        .col-sm-12
+          .well
+            %h5.title New Message
+            = render partial: 'messages/form', locals: {message: ActsAsMessageable::Message.new, user_id: params[:user_id]}
+      - @messages.each do |message|
+        .row
+          .col-sm-12
+            .panel{class: message.sent_messageable_id == current_user.id ? 'panel-info' : 'panel-danger'}
+              .panel-body
+                %p
+                  %strong= link_to message.sent_messageable.name, message.sent_messageable
+                  |
+                  %strong= l message.created_at
+                = simple_format message.body

@@ -28,55 +28,8 @@
       %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
         %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
         %span.sr-only Next
-  -#.col-sm-4
-  -#  .well
-  -#
-  -#    %form.form-horizontal
-  -#      %fieldset
-  -#        .center
-  -#          %legend Sign Up
-  -#          %i.fa.fa-user.fa-5x
-  -#        .form-group
-  -#          -#%label.col-lg-2.control-label{:for => "inputEmail"} Email
-  -#          .col-lg-12
-  -#            %input#inputName.form-control{:placeholder => "Name", :type => "text"}/
-  -#        .form-group
-  -#          -#%label.col-lg-2.control-label{:for => "inputEmail"} Email
-  -#          .col-lg-12
-  -#            %input#inputEmail.form-control{:placeholder => "Email", :type => "text"}/
-  -#        .form-group
-  -#          -#%label.col-lg-2.control-label{:for => "inputPassword"} Password
-  -#          .col-lg-12
-  -#            %input#inputPassword.form-control{:placeholder => "Password", :type => "password"}/
-  -#
-  -#        .form-group
-  -#          .col-lg-12.center
-  -#            %button.btn.btn-primary{:type => "submit"} Submit
 
 .row
   .col-sm-12.center
     %h1 Everything For Students
     %hr/
-.row
-  .col-sm-4
-    .panel.panel-default
-      .panel-heading
-        Last Topics
-      .panel-body
-        - Topic.order('id DESC').limit(10).each do |topic|
-          %p= link_to topic.name, forum_topic_posts_path(topic.forum, topic)
-  .col-sm-4
-    .panel.panel-default
-      .panel-heading
-        Last Blog Posts
-      .panel-body
-        - Blog.order('id DESC').limit(10).each do |blog|
-          %p= link_to blog.title, user_blog_path(blog.user, blog)
-  .col-sm-4
-    .panel.panel-default
-      .panel-heading
-        Last Users
-      .panel-body
-        - User.order('id DESC').limit(10).each do |user|
-          = link_to user_path(user) do
-            = image_tag user.avatar.url(:micro_thumb)

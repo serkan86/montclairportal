@@ -1,14 +1,33 @@
 .row
   .col-sm-4
-    .well
-      = render @user
+    = render @user
+    .row
+      .col-sm-12
+        .panel.panel-default
+          .panel-heading
+            Latest Blog Posts
+          .panel-body
+            - if @blogs.size == 0
+              .center
+                = link_to new_blog_path, class: 'btn btn-default btn-lg' do
+                  %i.fa.fa-plus
+                  = 'New Blog Post'
+            - else
+              - @blogs.each do |blog|
+                %h4= link_to blog.title, [blog.user, blog]
   .col-sm-8
-    .well
-      - if @blogs.size == 0
-        .center
-          = link_to new_blog_path, class: 'btn btn-default btn-lg' do
-            %i.fa.fa-plus
-            = 'New Blog Post'
-      - else
-        - @blogs.each do |blog|
-          %h2= link_to blog.title, [blog.user, blog]
+    .row
+      .col-sm-12
+        - if user_signed_in?
+          - if current_user == @user
+            .panel.panel-yellow
+              .panel-body
+                %h4.title= "Share anything"
+                .row
+                  .col-sm-12{id: "comment_form_#{@user.class}_#{@user.id}"}
+                    = render partial: 'comments/form', locals: {commentable: @user, comment: Comment.new}
+
+          .clearfix
+          .row
+            .col-sm-12
+              = render partial: 'comments/list', locals: {commentable: @user, comments: @comments}

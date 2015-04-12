@@ -1,11 +1,36 @@
-.center
-  = image_tag 'http://placehold.it/150x150', class: 'img-circle'
-%h2= user.name
-%p
-  %span.badge= user.posts.count
-  Posts
-%p
-  %span.badge= user.topics.count
-  Topics
-- if user_signed_in? && current_user == user
-  = link_to 'New Blog Post', new_blog_path
+.panel.panel-default
+  .panel-body
+    .center
+      = image_tag 'http://placehold.it/150x150', class: 'img-circle'
+    %h2= link_to user.name, user_path(user)
+    %p
+      %span.badge= user.posts.count
+      Posts
+    %p
+      %span.badge= user.topics.count
+      Topics
+    - if user_signed_in? && current_user == user
+      = link_to 'New Blog Post', new_blog_path
+    - if user_signed_in? && user != current_user
+      %button.btn.btn-primary.btn-xs{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+        %i.fa.fa-envelope
+        Send Message
+    - if user_signed_in?
+      %hr/
+      %div{class: "user-follow-#{user.id}"}
+        - if user != current_user && !user.followed_by?(current_user)
+          = render partial: 'follow_button', :locals => { :user => user }
+        - else
+          - if user != current_user
+            = render partial: 'unfollow_button', :locals => { :user => user }
+
+
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title= "New Message To #{user.name}"
+      .modal-body
+        = render partial: 'messages/form', locals: {message: ActsAsMessageable::Message.new, user_id: user.id}
