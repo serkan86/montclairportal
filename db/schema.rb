@@ -16,17 +16,6 @@ ActiveRecord::Schema.define(version: 20150406221532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_profiles", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "gsm"
-    t.integer  "admin_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admin_profiles", ["admin_id"], name: "index_admin_profiles_on_admin_id", using: :btree
-
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -102,17 +91,6 @@ ActiveRecord::Schema.define(version: 20150406221532) do
   add_index "topics", ["forum_id"], name: "index_topics_on_forum_id", using: :btree
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
-  create_table "user_profiles", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "gsm"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -127,7 +105,6 @@ ActiveRecord::Schema.define(version: 20150406221532) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "time_zone"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
