@@ -9,8 +9,11 @@
     %p
       %span.badge= user.topics.count
       Topics
-    - if user_signed_in? && current_user == user
-      = link_to 'New Blog Post', new_blog_path
+    %p
+      = link_to user_followees_path(user) do
+        %span.badge= user.followees(User).size
+        Following
+
     - if user_signed_in? && user != current_user
       %button.btn.btn-primary.btn-xs{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
         %i.fa.fa-envelope
@@ -19,10 +22,10 @@
       %hr/
       %div{class: "user-follow-#{user.id}"}
         - if user != current_user && !user.followed_by?(current_user)
-          = render partial: 'follow_button', :locals => { :user => user }
+          = render partial: 'users/follow_button', :locals => { :user => user }
         - else
           - if user != current_user
-            = render partial: 'unfollow_button', :locals => { :user => user }
+            = render partial: 'users/unfollow_button', :locals => { :user => user }
 
 
 #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}

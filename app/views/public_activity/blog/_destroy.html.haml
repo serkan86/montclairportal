@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-body
+    - if activity.owner
+      %strong= link_to activity.owner.name, user_path(activity.owner)
+
+    - if activity.owner
+      %span destroyed a blog
+    .pull-right
+      %i.fa.fa-clock-o
+      = "#{time_ago_in_words(activity.created_at)} Ago"

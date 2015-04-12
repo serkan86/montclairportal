@@ -1,12 +1,6 @@
-- content_for :sidebar do
-  %h5 Takip Edilenler
-  = render :partial => "users/following_profile", :collection => @followees, :as => :profile
-
-
-%h5 Yorumunu eksik etme burası senin stadın...
-#feed-list
-  = render @feeds
+.row
+  = render :partial => "users/mini_profile", :collection => @followees, :as => :user
 
 
 #feed-pagination
-  = will_paginate @feeds, renderer: BootstrapPagination::Rails, bootstrap: 3
+  = will_paginate @followees, renderer: BootstrapPagination::Rails, bootstrap: 3

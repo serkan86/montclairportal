@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   resources :blogs, path: 'blog'
   resources :users, concerns: [:commentable] do
     resources :blogs, path: 'blog', only: [:index, :show]
+    resources :followees, only: [:index]
   end
 
   resources :followees, only: [:create, :destroy]

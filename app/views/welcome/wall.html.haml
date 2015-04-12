@@ -1,6 +1,7 @@
 .row
   .col-sm-8
-    Acitivities Here
+    = render_activities(@activities)
+    = will_paginate @activities, page_links: false, renderer: BootstrapPagination::Rails, bootstrap: 3
   .col-sm-4
     .row
       .col-sm-12

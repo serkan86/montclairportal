@@ -6,6 +6,9 @@
         .panel.panel-default
           .panel-heading
             Latest Blog Posts
+            .pull-right
+              - if user_signed_in? && current_user == @user
+                = link_to 'New Blog Post', new_blog_path
           .panel-body
             - if @blogs.size == 0
               .center

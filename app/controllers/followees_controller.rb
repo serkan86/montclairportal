@@ -1,9 +1,9 @@
 class FolloweesController < ApplicationController
 
   def index
-    user = User.find_by username: params[:user_id]
-    @followees = user.followees(User)
-    @feeds = Feed.includes(:user).where('user_id IN(?)', user.followees(User).map(&:id)).order('id DESC').paginate(page: params[:page])
+    user = User.find(params[:user_id])
+    add_breadcrumb 'Following', user_followees_path(user)
+    @followees = User.where('id IN (?)', user.followees(User).map(&:id)).paginate(page: params[:page])
     respond_to do |format|
       format.js
       format.html

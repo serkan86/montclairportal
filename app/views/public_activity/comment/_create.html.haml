@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-body
+    - if activity.owner
+      %strong= link_to activity.owner.name, user_path(activity.owner)
+
+    - if activity.owner
+      %span added one comment
+      to own profile
+    .pull-right
+      %i.fa.fa-clock-o
+      = "#{time_ago_in_words(activity.created_at)} Ago"
+    %hr/
+    - if activity.trackable
+      = simple_format activity.trackable.content
+    - else
+      Deleted comment.

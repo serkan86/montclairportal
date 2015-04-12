@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-body
+    - if activity.owner
+      %strong= link_to activity.owner.name, user_path(activity.owner)
+
+    - if activity.owner
+      %span updated a blog
+    .pull-right
+      %i.fa.fa-clock-o
+      = "#{time_ago_in_words(activity.created_at)} Ago"
+    %hr/
+    - if activity.trackable
+      %h4= link_to activity.trackable.title, user_blog_path(activity.owner, activity.trackable)
+      = simple_format activity.trackable.content.truncate(200)
+    - else
+      Deleted blog.
