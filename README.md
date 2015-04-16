@@ -39,8 +39,10 @@ belongs_to :user
 
 ## bootstrap-sass
 * For bootstrap framework. http://getbootstrap.com/
+
 ## responders
 * Fat model skinny controller. A set of Rails responders to dry up your application https://github.com/plataformatec/responders
+
 ## exception_notification
 * Exception notifier for production. The Exception Notification gem provides a set of notifiers for sending notifications when errors occur in a Rack/Rails application. https://github.com/smartinez87/exception_notification
 
