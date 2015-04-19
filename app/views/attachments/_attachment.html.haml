@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-body
+    %h2= attachment.title
+    %p= attachment.description
+    %p
+      %strong= "#{time_ago_in_words attachment.created_at} ago"
+      = "uploaded by"
+      %strong= attachment.user.name

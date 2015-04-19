@@ -1,0 +1,8 @@
+- content_for :toolbar do
+  = link_to new_attachment_path, class: 'btn btn-default' do
+    %i.fa.fa-upload
+    Upload New File
+
+= render @attachments
+
+= will_paginate @attachments, renderer: BootstrapPagination::Rails, bootstrap: 3

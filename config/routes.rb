@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :attachments
+
   concern :commentable do
     resources :comments
   end
@@ -40,6 +42,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :blogs, path: 'blog'
   resources :users, concerns: [:commentable] do
+    resources :attachments
     resources :blogs, path: 'blog', only: [:index, :show]
     resources :followees, only: [:index]
   end

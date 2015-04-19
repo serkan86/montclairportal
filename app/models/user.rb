@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 
   has_many :blogs
 
+  has_many :attachments
+
   has_attached_file :avatar, :styles => { micro_thumb: '50x50#', medium: '500x500>', thumb: '100x100#', small: '150x150#'}, default_url: ':style_profile.gif'
 
   validates_attachment_content_type :avatar,
