@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :index]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :set_breadcrumb, only: [:edit, :show, :index]
-  before_action :authenticate_user!, only: [:new, :edit, :destroy, :update, :create]
+  # before_action :authenticate_user!, only: [:new, :edit, :destroy, :update, :create]
 
 
   def index

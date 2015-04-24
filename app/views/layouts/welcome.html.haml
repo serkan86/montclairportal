@@ -3,7 +3,7 @@
   %head
     %title montclair
     = stylesheet_link_tag 'application',
-                        '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css',
+                        '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css',
                         media: 'all', 'data-turbolinks-track' => true
 
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -16,5 +16,13 @@
           .pull-right
             = yield :toolbar
       = yield
-      .footer
+    .footer
+      .container.center
         %p © Montclair Portal 2015
+        %p
+          = link_to 'http://facebook.com' do
+            %span.fa.fa-facebook-official.fa-2x
+          = link_to 'http://facebook.com' do
+            %span.fa.fa-twitter-square.fa-2x
+          = link_to 'http://facebook.com' do
+            %span.fa.fa-github-square.fa-2x
