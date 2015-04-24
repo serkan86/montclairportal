@@ -23,6 +23,8 @@
               %li
                 %a{:href => user_path(current_user)} Profile
               %li
+                %a{:href => edit_user_registration_path} Settings
+              %li
                 = link_to messages_path do
                   Messages
                   %span.badge= current_user.received_messages.unreaded.count

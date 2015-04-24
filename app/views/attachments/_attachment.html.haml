@@ -3,6 +3,10 @@
     %h2= attachment.title
     %p= attachment.description
     %p
-      %strong= "#{time_ago_in_words attachment.created_at} ago"
-      = "uploaded by"
-      %strong= attachment.user.name
+      = link_to attachment.file.url, class: 'btn btn-primary btn-xs' do
+        %span.fa.fa-download
+        Download
+      %span.pull-right
+        %strong= "#{time_ago_in_words attachment.created_at} ago"
+        = "uploaded by"
+        %strong= attachment.user.name

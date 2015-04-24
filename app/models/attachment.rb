@@ -3,6 +3,8 @@ class Attachment < ActiveRecord::Base
 
   has_attached_file :file
 
+  validates_presence_of :title, :file
+
   validates_attachment_size :file, in: 0.megabytes..2.megabytes
 
   validates_attachment_content_type :file,

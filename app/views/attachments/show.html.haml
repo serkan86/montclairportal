@@ -11,3 +11,5 @@
       = s.attribute :title
       = s.attribute :description
       = s.association :user
+      = s.attribute :description do
+        = link_to 'Download', @attachment.file.url, target: '_blank'

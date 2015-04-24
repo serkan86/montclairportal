@@ -9,17 +9,21 @@
       / Wrapper for slides
       .carousel-inner{:role => "listbox"}
         .item.active
-          %img{:alt => "...", :src => 'http://lorempixel.com/output/fashion-q-c-1140-500-3.jpg'}/
+          %img{:alt => "...", :src => asset_path('slide-1.jpg')}/
           .carousel-caption
             Montclair Forum
         .item
-          %img{:alt => "...", :src => 'http://lorempixel.com/output/fashion-q-g-1140-500-10.jpg'}/
+          %img{:alt => "...", :src => asset_path('slide-2.jpg')}/
           .carousel-caption
             Montclair Blog
         .item
-          %img{:alt => "...", :src => 'http://lorempixel.com/output/transport-q-g-1140-500-4.jpg'}/
+          %img{:alt => "...", :src => asset_path('slide-3.jpg')}/
           .carousel-caption
-            Montclair Rent
+            Everything for Montclair
+        .item
+          %img{:alt => "...", :src => asset_path('slide-4.jpg')}/
+          .carousel-caption
+            Montclair File Sharing
 
       / Controls
       %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
