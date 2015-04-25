@@ -6,6 +6,11 @@
       = link_to attachment.file.url, class: 'btn btn-primary btn-xs' do
         %span.fa.fa-download
         Download
+      - if attachment.attachment_category.present?
+        %strong
+          Category:
+        = link_to attachment.attachment_category.name, attachments_path(q: {attachment_category_id_eq: attachment.attachment_category.id})
+
       %span.pull-right
         %strong= "#{time_ago_in_words attachment.created_at} ago"
         = "uploaded by"

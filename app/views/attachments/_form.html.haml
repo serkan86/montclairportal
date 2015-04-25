@@ -10,6 +10,7 @@
         = f.input :title
         = f.input :description
         = f.input :file
+        = f.association :attachment_category, include_blank: false
 
       .form-actions
         = f.button :submit, class: 'btn btn-default'

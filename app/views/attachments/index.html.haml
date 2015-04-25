@@ -3,6 +3,8 @@
     %i.fa.fa-upload
     Upload New File
 
+= render 'filters'
+%hr/
 = render @attachments
 
 = will_paginate @attachments, renderer: BootstrapPagination::Rails, bootstrap: 3

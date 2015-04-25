@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  audited
 
   belongs_to :user
 

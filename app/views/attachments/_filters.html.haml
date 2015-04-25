@@ -1,5 +1,15 @@
 .row
   .col-lg-12
-    = search_form_for @search, builder: SimpleForm::FormBuilder do |f|
-      .input-group
-        = f.input_field :title_or_description_cont, label: false, input_html: {class: 'form-control'}, placeholder: 'Quick search...'
+    .panel.panel-default
+      .panel-body
+        %span
+          = link_to 'All', attachments_path
+        - AttachmentCategory.all.each do |category|
+          |
+          = link_to category.name, attachments_path(q: {attachment_category_id_eq: category.id})
+        .pull-right
+          = search_form_for @search, builder: SimpleForm::FormBuilder, html: {class: 'form-inline'} do |f|
+            .form-group
+              = f.input_field :title_or_description_cont, label: false, class: 'form-control', placeholder: 'Quick search...'
+            = button_tag( class: 'btn') do
+              %i.fa.fa-search

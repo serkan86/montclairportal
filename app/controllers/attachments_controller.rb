@@ -50,6 +50,6 @@ class AttachmentsController < ApplicationController
   end
 
   def attachment_params
-    params.require(:attachment).permit(:description, :title, :file)
+    params.require(:attachment).permit(:description, :title, :file, :attachment_category_id)
   end
 end

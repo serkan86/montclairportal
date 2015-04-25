@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  audited
   include Commentable
 
   acts_as_messageable :required => :body

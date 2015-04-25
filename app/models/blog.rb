@@ -1,4 +1,5 @@
 class Blog < ActiveRecord::Base
+  audited
   belongs_to :user
 
   include PublicActivity::Model

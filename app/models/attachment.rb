@@ -1,9 +1,13 @@
 class Attachment < ActiveRecord::Base
+  audited
+
+  belongs_to :attachment_category
   belongs_to :user
 
   has_attached_file :file
 
-  validates_presence_of :title, :file
+  validates_presence_of :title, :file, :attachment_category_id
+
 
   validates_attachment_size :file, in: 0.megabytes..2.megabytes
 
