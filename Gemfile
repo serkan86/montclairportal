@@ -15,7 +15,7 @@ gem 'responders', '~> 1.0.0'
 gem 'exception_notification', '~> 4.0.1'
 gem 'simple_form', '~> 3.0.1'
 gem 'show_for', '~> 0.3.0.rc'
-gem 'rails_config', '~> 0.3.3'
+gem 'rails_config'
 
 gem 'compass-rails'
 gem 'devise', '~> 3.2.4'

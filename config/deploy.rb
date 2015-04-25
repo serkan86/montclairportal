@@ -13,6 +13,7 @@ load 'config/deploy/recipes/assets'
 load 'config/deploy/recipes/postgresql'
 #load 'config/deploy/recipes/whenever'
 load 'config/deploy/recipes/monit'
+load 'config/deploy/recipes/settings'
 
 set :stages, %w(staging production)
 
