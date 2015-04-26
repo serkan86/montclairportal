@@ -27,6 +27,12 @@ belongs_to :topic
 belongs_to :user
 ```
 
+### Attachment
+```ruby
+belongs_to :user
+belongs_to :attachment_category
+```
+
 # GEMS
 
 ## coffee-rails
