@@ -1,0 +1,14 @@
+.panel.panel-default
+  .panel-heading
+    Statistics
+  .panel-body
+    .row
+      .col-sm-4
+        %h1= User.count
+        Users
+      .col-sm-4
+        %h1= Blog.count
+        Blog Posts
+      .col-sm-4
+        %h1= Attachment.count
+        Attachments
