@@ -29,6 +29,7 @@ module Montclair
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.sass.preferred_syntax = :sass
+    config.active_record.observers = :user_observer
 
   end
 end

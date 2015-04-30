@@ -300,6 +300,7 @@ DEPENDENCIES
   rack-timeout (~> 0.0.4)
   rails (~> 4.1.1)
   rails-i18n (~> 4.0.1)
+  rails-observers
   rails_config
   ransack (~> 1.2.3)
   recipient_interceptor (~> 0.1.2)

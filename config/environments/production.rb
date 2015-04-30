@@ -77,7 +77,19 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Mail Setting
-  config.action_mailer.default_url_options = { :host => 'montclair.com' }
+  config.action_mailer.default_url_options = { :host => '45.55.170.36' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.smtp_settings = {
+    address: Settings.smtp.mandrill.address,
+    port: Settings.smtp.mandrill.port,
+    enable_starttls_auto: Settings.smtp.mandrill.enable_starttls_auto,
+    user_name: Settings.smtp.mandrill.user_name,
+    password: Settings.smtp.mandrill.password,
+    authentication: Settings.smtp.mandrill.authentication
+  }
 
 
   config.action_mailer.delivery_method = :smtp

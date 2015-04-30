@@ -34,7 +34,7 @@ gem 'capistrano-ext', '~> 1.2.1'
 gem 'unicorn', '~> 4.8.2'
 gem 'aws-sdk', '~> 1.29.0'
 
-# gem 'rails-observers'
+gem 'rails-observers'
 
 gem 'breadcrumbs_on_rails', '~> 2.3.0'
 
