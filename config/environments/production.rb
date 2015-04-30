@@ -83,12 +83,12 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.smtp_settings = {
-    address: Settings.smtp.mandrill.address,
-    port: Settings.smtp.mandrill.port,
-    enable_starttls_auto: Settings.smtp.mandrill.enable_starttls_auto,
-    user_name: Settings.smtp.mandrill.user_name,
-    password: Settings.smtp.mandrill.password,
-    authentication: Settings.smtp.mandrill.authentication
+    address: 'smtp.mandrillapp.com',
+    port: 587,
+    enable_starttls_auto: true,
+    user_name: 'srknyavuz86@gmail.com',
+    password: 'b8oArXGnROL7V08qlbGEKg',
+    authentication: 'plain'
   }
 
 
